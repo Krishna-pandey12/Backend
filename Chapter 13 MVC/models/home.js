@@ -23,6 +23,13 @@ module.exports=class Home{
    }
    static fetchAll(){
     const homeDataPath=path.join(rootDir,'data','homes.json');
+    fs.readFile(homeDataPath,(err,data)=>{
+      console.log("File read:",err,data);
+      if(err){
+        registeredHomes=4 [];
+      }
+      return JSON.parse(data);
+    });
     return registeredHomes;
    }
 
